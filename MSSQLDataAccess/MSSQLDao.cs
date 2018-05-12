@@ -2,7 +2,7 @@
 
 namespace MSSQLDataAccess
 {
-    public class MSSQLDao : IDataAccessContract
+    public class MSSQLDao : IDataAccess
     {
         
     }

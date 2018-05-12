@@ -2,7 +2,7 @@
 
 namespace MemoryDataAccess
 {
-    public class MemoryDao : IDataAccessContract
+    public class MemoryDao : IDataAccess
     {
         
     }

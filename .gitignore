@@ -15,3 +15,5 @@ MemoryDataAccess/bin
 MemoryDataAccess/obj
 MSSQLDataAccess/bin
 MSSQLDataAccess/obj
+AppConfig/bin
+AppConfig/obj

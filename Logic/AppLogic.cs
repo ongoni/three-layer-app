@@ -2,7 +2,7 @@
 
 namespace Logic
 {
-    public class AppLogic : ILogicContract
+    public class AppLogic : ILogic
     {
         
     }

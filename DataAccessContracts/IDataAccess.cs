@@ -1,6 +1,6 @@
 ﻿namespace DataAccessContracts
 {
-    public interface IDataAccessContract
+    public interface IDataAccess
     {
         
     }

@@ -1,32 +1,32 @@
 ﻿using System;
 using System.Configuration;
+using DataAccessContracts;
 using Logic;
 using LogicContracts;
-using DataAccessContracts;
 using MemoryDataAccess;
 using MSSQLDataAccess;
 using Ninject;
 
 namespace AppConfig
 {
-    public class AppConfig
+    public class DependencyConfig
     {
         public static void RegisterServices(IKernel kernel)
         {
             kernel
-                .Bind<ILogicContract>()
+                .Bind<ILogic>()
                 .To<AppLogic>();
 
             switch (ConfigurationManager.AppSettings["DaoType"])
             {
                 case "Memory":
                     kernel
-                        .Bind<IDataAccessContract>()
+                        .Bind<IDataAccess>()
                         .To<MemoryDao>();
                     break;
                 case "DataBase":
                     kernel
-                        .Bind<IDataAccessContract>()
+                        .Bind<IDataAccess>()
                         .To<MSSQLDao>();
                     break;
                 default:

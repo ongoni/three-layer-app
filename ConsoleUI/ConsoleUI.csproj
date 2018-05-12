@@ -50,6 +50,24 @@
   <ItemGroup>
     <Content Include="app.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppConfig\AppConfig.csproj">
+      <Project>{87b080a8-2236-4410-80c8-d8196ba2a609}</Project>
+      <Name>AppConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{f86341e7-78d8-47f0-8d3c-9ca5af1b8241}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicContracts\LogicContracts.csproj">
+      <Project>{50d0db38-f241-4a33-b7ef-f02208d96145}</Project>
+      <Name>LogicContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{e908e68c-ca67-4d35-9a1b-e6962be7bf1c}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.

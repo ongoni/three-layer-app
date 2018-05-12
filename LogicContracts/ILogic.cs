@@ -1,6 +1,6 @@
 ﻿namespace LogicContracts
 {
-    public interface ILogicContract
+    public interface ILogic
     {
         
     }
