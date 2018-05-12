@@ -1,5 +1,6 @@
 .vs
 .idea
+packages
 ConsoleUI/bin
 ConsoleUI/obj
 DataAccessContracts/bin

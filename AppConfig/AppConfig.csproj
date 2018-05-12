@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E8AC86B-3E4B-449A-BF55-AC83C8AFE7B8}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{87B080A8-2236-4410-80C8-D8196BA2A609}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleUI</RootNamespace>
-    <AssemblyName>ConsoleUI</AssemblyName>
+    <RootNamespace>AppConfig</RootNamespace>
+    <AssemblyName>AppConfig</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -36,19 +36,39 @@
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="AppConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\DataAccessContracts\DataAccessContracts.csproj">
+      <Project>{38844684-db99-4d12-8087-902c6f95b3b2}</Project>
+      <Name>DataAccessContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicContracts\LogicContracts.csproj">
+      <Project>{50d0db38-f241-4a33-b7ef-f02208d96145}</Project>
+      <Name>LogicContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{e908e68c-ca67-4d35-9a1b-e6962be7bf1c}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MemoryDataAccess\MemoryDataAccess.csproj">
+      <Project>{b6a99235-6d73-480b-8b5a-b0fea3ee1e56}</Project>
+      <Name>MemoryDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSSQLDataAccess\MSSQLDataAccess.csproj">
+      <Project>{2c470a7b-9008-4fc1-b6e1-43eb75f5b49a}</Project>
+      <Name>MSSQLDataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
