@@ -27,7 +27,7 @@ namespace AppConfig
                 case "DataBase":
                     kernel
                         .Bind<IDataAccess>()
-                        .To<MSSQLDao>();
+                        .To<MssqlDao>();
                     break;
                 default:
                     throw new ArgumentException("Wrong DAO type in config file");
