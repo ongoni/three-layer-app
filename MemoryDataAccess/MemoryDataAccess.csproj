@@ -46,6 +46,10 @@
       <Project>{38844684-db99-4d12-8087-902c6f95b3b2}</Project>
       <Name>DataAccessContracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{f86341e7-78d8-47f0-8d3c-9ca5af1b8241}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

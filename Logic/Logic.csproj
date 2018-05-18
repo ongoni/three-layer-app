@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -42,9 +43,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessContracts\DataAccessContracts.csproj">
+      <Project>{38844684-db99-4d12-8087-902c6f95b3b2}</Project>
+      <Name>DataAccessContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{f86341e7-78d8-47f0-8d3c-9ca5af1b8241}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogicContracts\LogicContracts.csproj">
       <Project>{50d0db38-f241-4a33-b7ef-f02208d96145}</Project>
       <Name>LogicContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MemoryDataAccess\MemoryDataAccess.csproj">
+      <Project>{b6a99235-6d73-480b-8b5a-b0fea3ee1e56}</Project>
+      <Name>MemoryDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSSQLDataAccess\MSSQLDataAccess.csproj">
+      <Project>{2c470a7b-9008-4fc1-b6e1-43eb75f5b49a}</Project>
+      <Name>MSSQLDataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
