@@ -28,12 +28,13 @@ namespace ConsoleUI
                 {
                     Console.WriteLine("1. add person");
                     Console.WriteLine("2. add medal");
-                    Console.WriteLine("3. delete person");
-                    Console.WriteLine("4. delete medal");
-                    Console.WriteLine("5. add medal to person");
-                    Console.WriteLine("6. show all medals");
-                    Console.WriteLine("7. show all person's medals");
-                    Console.WriteLine("8. show all persons");
+                    Console.WriteLine("3. add material");
+                    Console.WriteLine("4. add medal to person");
+                    Console.WriteLine("5. show all medals");
+                    Console.WriteLine("6. show all person's medals");
+                    Console.WriteLine("7. show all persons");
+                    Console.WriteLine("8. delete medal");
+                    Console.WriteLine("9. delete person");
                     Console.WriteLine("0. exit");
 
                     switch (Console.ReadKey(true).Key)
@@ -45,22 +46,25 @@ namespace ConsoleUI
                             AddMedal();
                             break;
                         case ConsoleKey.D3:
-                            DeletePerson();
+                            AddMaterial();
                             break;
                         case ConsoleKey.D4:
-                            DeleteMedal();
-                            break;
-                        case ConsoleKey.D5:
                             AddMedalToPerson();
                             break;
-                        case ConsoleKey.D6:
+                        case ConsoleKey.D5:
                             ShowMedals();
                             break;
-                        case ConsoleKey.D7:
+                        case ConsoleKey.D6:
                             ShowMedalsForPerson();
                             break;
-                        case ConsoleKey.D8:
+                        case ConsoleKey.D7:
                             ShowPersons();
+                            break;
+                        case ConsoleKey.D8:
+                            DeleteMedal();
+                            break;
+                        case ConsoleKey.D9:
+                            DeletePerson();
                             break;
                         case ConsoleKey.D0:
                             return;
@@ -73,6 +77,8 @@ namespace ConsoleUI
                     Console.WriteLine(e.Message);
                     Console.ReadLine();
                 }
+
+                Console.ReadKey();
             }
         }
 
@@ -88,7 +94,7 @@ namespace ConsoleUI
             DateTime birthDate = DateTime.Parse(Console.ReadLine());
             
             Console.Write("Enter age: ");
-            if (int.TryParse(Console.ReadLine(), out var age))
+            if (!int.TryParse(Console.ReadLine(), out var age))
             {
                 throw new ArgumentException("incorrect age");
             }
@@ -104,7 +110,7 @@ namespace ConsoleUI
             Console.WriteLine("Choose material:");
             ShowMaterials();
             
-            if (int.TryParse(Console.ReadLine(), out var id) || logic.GetMaterialById(id) == null)
+            if (!int.TryParse(Console.ReadLine(), out var id) || logic.GetMaterialById(id) == null)
             {
                 throw new ArgumentException("incorrect id");
             }
@@ -112,12 +118,20 @@ namespace ConsoleUI
             Medal medal = logic.SaveMedal(name, logic.GetMaterialById(id));
         }
 
+        private static void AddMaterial()
+        {
+            Console.Write("Enter name: ");
+            string name = Console.ReadLine();
+
+            Material material = logic.SaveMaterial(name);
+        }
+        
         private static void AddMedalToPerson()
         {
             Console.WriteLine("Choose medal:");
             ShowMedals();
             
-            if (int.TryParse(Console.ReadLine(), out var medalId) || logic.GetMedalById(medalId) == null)
+            if (!int.TryParse(Console.ReadLine(), out var medalId) || logic.GetMedalById(medalId) == null)
             {
                 throw new ArgumentException("incorrect id");
             }
@@ -125,7 +139,7 @@ namespace ConsoleUI
             Console.WriteLine("Choose person:");
             ShowPersons();
             
-            if (int.TryParse(Console.ReadLine(), out var personId) || logic.GetPersonById(personId) == null)
+            if (!int.TryParse(Console.ReadLine(), out var personId) || logic.GetPersonById(personId) == null)
             {
                 throw new ArgumentException("incorrect id");
             }
@@ -162,7 +176,7 @@ namespace ConsoleUI
             Console.WriteLine("Choose person:");
             ShowPersons();
             
-            if (int.TryParse(Console.ReadLine(), out var id) || logic.GetPersonById(id) == null)
+            if (!int.TryParse(Console.ReadLine(), out var id) || logic.GetPersonById(id) == null)
             {
                 throw new ArgumentException("incorrect id");
             }
@@ -178,7 +192,7 @@ namespace ConsoleUI
             Console.WriteLine("Choose person:");
             ShowPersons();
             
-            if (int.TryParse(Console.ReadLine(), out var id) || logic.GetPersonById(id) == null)
+            if (!int.TryParse(Console.ReadLine(), out var id) || logic.GetPersonById(id) == null)
             {
                 throw new ArgumentException("incorrect id");
             }
@@ -191,7 +205,7 @@ namespace ConsoleUI
             Console.WriteLine("Choose medal:");
             ShowMedals();
             
-            if (int.TryParse(Console.ReadLine(), out var id) || logic.GetMedalById(id) == null)
+            if (!int.TryParse(Console.ReadLine(), out var id) || logic.GetMedalById(id) == null)
             {
                 throw new ArgumentException("incorrect id");
             }
