@@ -74,7 +74,8 @@ namespace Logic
                 LastName = lastName,
                 BirthDate = birthDate,
                 Age = age,
-                Addresses = new List<Address>()
+                Addresses = new List<Address>(),
+                Medals = new List<Medal>()
             };
 
             if (_dataAccess.Add(person))
@@ -100,7 +101,8 @@ namespace Logic
                 LastName = lastName,
                 BirthDate = birthDate,
                 Age = age,
-                Addresses = addresses
+                Addresses = addresses,
+                Medals = new List<Medal>()
             };
 
             if (_dataAccess.Add(person))
@@ -113,6 +115,35 @@ namespace Logic
             }
         }
 
+        public Person SavePerson(string firstName, string lastName, DateTime birthDate, int age, List<Address> addresses,
+            List<Medal> medals)
+        {
+            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || age <= 0 
+                || addresses == null || medals == null)
+            {
+                throw new ArgumentException("person's data are incorrect");
+            }
+
+            Person person = new Person
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                BirthDate = birthDate,
+                Age = age,
+                Addresses = addresses,
+                Medals = medals
+            };
+
+            if (_dataAccess.Add(person))
+            {
+                return person;
+            }
+            else
+            {
+                throw new InvalidOperationException("error during person saving");
+            }
+        }
+        
         public Medal SaveMedal(string name, Material material)
         {
             if (string.IsNullOrWhiteSpace(name))
