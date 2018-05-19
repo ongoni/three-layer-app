@@ -15,19 +15,19 @@ namespace AppConfig
         {
             kernel
                 .Bind<ILogic>()
-                .To<AppLogic>();
+                .To<AppLogic>().InSingletonScope();
 
             switch (ConfigurationManager.AppSettings["DaoType"])
             {
                 case "Memory":
                     kernel
                         .Bind<IDataAccess>()
-                        .To<MemoryDao>();
+                        .To<MemoryDao>().InSingletonScope();
                     break;
                 case "DataBase":
                     kernel
                         .Bind<IDataAccess>()
-                        .To<MssqlDao>();
+                        .To<MssqlDao>().InSingletonScope();
                     break;
                 default:
                     throw new ArgumentException("Wrong DAO type in config file");
