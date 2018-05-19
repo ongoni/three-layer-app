@@ -17,6 +17,8 @@ namespace LogicContracts
         List<Medal> GetPersonMedals(int id);
         Person SavePerson(string firstName, string lastName, DateTime birthDate, int age);
         Person SavePerson(string firstName, string lastName, DateTime birthDate, int age, List<Address> addresses);
+        Person SavePerson(string firstName, string lastName, DateTime birthDate, int age, List<Address> addresses, 
+            List<Medal> medals);
         Medal SaveMedal(string name, Material material);
         Address SaveAddress(string city, string street, string houseNumber);
         Material SaveMaterial(string name);

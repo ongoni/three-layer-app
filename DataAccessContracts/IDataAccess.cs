@@ -10,6 +10,7 @@ namespace DataAccessContracts
         bool Add(Material material);
         bool Add(Address address);
         void AddMedalToPerson(Person person, Medal medal);
+        void AddAddressToPerson(Person person, Address address);
         IEnumerable<Person> GetAllPersons();
         IEnumerable<Medal> GetAllMedals();
         IEnumerable<Address> GetAllAddresses();
