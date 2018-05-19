@@ -33,6 +33,7 @@ namespace ConsoleUI
                     Console.WriteLine("5. add medal to person");
                     Console.WriteLine("6. show all medals");
                     Console.WriteLine("7. show all person's medals");
+                    Console.WriteLine("8. show all persons");
                     Console.WriteLine("0. exit");
 
                     switch (Console.ReadKey(true).Key)
@@ -57,6 +58,9 @@ namespace ConsoleUI
                             break;
                         case ConsoleKey.D7:
                             ShowMedalsForPerson();
+                            break;
+                        case ConsoleKey.D8:
+                            ShowPersons();
                             break;
                         case ConsoleKey.D0:
                             return;
