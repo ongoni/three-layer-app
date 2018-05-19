@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DataAccessContracts;
 using Entities;
@@ -104,6 +103,21 @@ namespace MemoryDataAccess
             }
         }
 
+        public void AddAddressToPerson(Person person, Address address)
+        {
+            if (!_persons.Contains(person))
+            {
+                _persons.Add(person);
+            }
+            
+            person.Addresses.Add(address);
+
+            if (!_addresses.Contains(address))
+            {
+                _addresses.Add(address);
+            }
+        }
+
         public IEnumerable<Person> GetAllPersons()
         {
             return _persons.Select(x => x);
@@ -185,13 +199,27 @@ namespace MemoryDataAccess
         }
 
         public bool DeleteAddressById(int id)
-        {
-            throw new NotImplementedException();
+        {            
+            Address address = _addresses.FirstOrDefault(x => x.Id == id);
+            
+            if (address == null)
+            {
+                return false;
+            }
+
+            return _addresses.Remove(address);
         }
 
         public bool DeleteMaterialById(int id)
         {
-            throw new NotImplementedException();
+            Material material = _materials.FirstOrDefault(x => x.Id == id);
+            
+            if (material == null)
+            {
+                return false;
+            }
+
+            return _materials.Remove(material);
         }
     }
 }
