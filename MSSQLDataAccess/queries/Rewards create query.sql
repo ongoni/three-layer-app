@@ -2,7 +2,7 @@ use Rewards
 go
 
 CREATE TABLE [Person] (
-	id int NOT NULL,
+	id int IDENTITY(1,1) NOT NULL,
 	first_name varchar(50) NOT NULL,
 	last_name varchar(50) NOT NULL,
 	birth_date date NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE [Person] (
 )
 GO
 CREATE TABLE [Address] (
-	id int NOT NULL,
+	id int IDENTITY(1,1) NOT NULL,
 	city varchar(50) NOT NULL,
 	street varchar(50) NOT NULL,
 	house_number varchar(50) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE [Address] (
 )
 GO
 CREATE TABLE [Medal] (
-	id int NOT NULL,
+	id int IDENTITY(1,1) NOT NULL,
 	name varchar(50) NOT NULL,
 	material int NOT NULL,
   CONSTRAINT [PK_MEDAL] PRIMARY KEY CLUSTERED
@@ -38,7 +38,7 @@ CREATE TABLE [Medal] (
 )
 GO
 CREATE TABLE [Material] (
-	id int NOT NULL,
+	id int IDENTITY(1,1) NOT NULL,
 	name varchar(50) NOT NULL,
   CONSTRAINT [PK_MATERIAL] PRIMARY KEY CLUSTERED
   (
